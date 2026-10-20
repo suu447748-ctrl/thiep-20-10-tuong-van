@@ -19,7 +19,6 @@
   --wine-dark:#4A0E1C;
   --gold:#C5A059;
   --gold2:#E8C87A;
-  --gold-light:#FFF3D6;
   --rose:#E94E6B;
   --rose-light:#FFE8EC;
   --text:#2B1218;
@@ -35,7 +34,6 @@
     --text:#FFF0E6;
     --muted:#D8B8BE;
     --line:#4A2A32;
-    --gold-light:#3A2A12;
     --rose-light:#3D1A22;
   }
 }
@@ -71,175 +69,85 @@ a{color:inherit}
   *{animation-duration:.01ms !important; transition-duration:.01ms !important}
 }
 
-.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:18px 16px 40px}
+.wrap{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:26px 16px 44px}
 
-/* Top note */
-.topnote{
-  display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:6px 0 14px;
+.head{text-align:center;margin:6px 0 20px}
+.head .date{
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--wine);
 }
-.topnote span{
-  font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
-  background:var(--wine);color:#FFE9B8;padding:7px 12px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.25);
-}
-.topnote span.gold{background:#FFF;color:var(--wine);border-color:var(--line)}
-
-/* MAIN CARD */
-.card{
-  background:var(--card);
-  border-radius:28px;
-  box-shadow:var(--shadow);
-  border:1px solid var(--line);
-  overflow:hidden;
-}
-.card-hero{
-  background:linear-gradient(135deg, var(--wine-dark) 0%, var(--wine) 48%, var(--wine2) 100%);
-  color:white;
-  padding:28px 22px 22px;
-  position:relative;
-  overflow:hidden;
-}
-.card-hero::before, .card-hero::after{
-  content:"✿ ✿ ✿"; position:absolute; font-size:90px; opacity:.12; letter-spacing:10px; line-height:1;
-}
-.card-hero::before{left:-10px;top:6px;transform:rotate(-12deg)}
-.card-hero::after{right:-6px;bottom:2px;transform:rotate(14deg)}
-.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center}
-@media(max-width:680px){.hero-inner{grid-template-columns:1fr;text-align:center}}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
-  padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
-}
-.eyebrow i{width:6px;height:6px;background:var(--gold2);border-radius:50%;display:block}
-h1{
+.head h1{
   font-family:"Playfair Display", serif;
-  font-size:clamp(28px,5vw,44px);
-  line-height:.95; margin:14px 0 6px; letter-spacing:-.02em;
+  font-size:clamp(30px,6vw,46px);
+  line-height:1.05; margin:10px 0 4px; letter-spacing:-.01em;
 }
-h1 em{font-family:"Great Vibes", cursive; font-weight:400; font-size:1.35em; color:var(--gold2); letter-spacing:0; display:block; margin-top:4px; line-height:1}
-.hero-sub{opacity:.92; line-height:1.6; font-size:15px; max-width:520px}
-@media(max-width:680px){.hero-sub{margin:0 auto}}
-.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-@media(max-width:680px){.hero-badges{justify-content:center}}
-.hero-badges b{
-  font-size:12px; background:white; color:var(--wine); padding:7px 10px; border-radius:999px;
-}
-.hero-badges b:last-child{background:var(--gold2); color:#3D1A05; border:none}
+.head h1 em{font-family:"Great Vibes", cursive; font-weight:400; font-size:1.3em; color:var(--wine2); display:block; margin-top:2px}
+.head p{margin:8px auto 0; color:var(--muted); font-size:15px; line-height:1.6; max-width:520px}
 
-/* Bouquet visual */
+/* Bouquets */
+.bouquets{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0 6px;
+}
+@media(max-width:560px){.bouquets{grid-template-columns:repeat(2,1fr)}}
 .bouquet{
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.22);
-  border-radius:20px; padding:16px; text-align:center; backdrop-filter:blur(6px);
+  background:var(--card); border:1px solid var(--line); border-radius:20px;
+  padding:20px 10px 16px; text-align:center; box-shadow:0 10px 24px rgba(109,20,38,.07);
 }
-.bouquet-visual{font-size:64px; line-height:1; filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));}
-.bouquet p{margin:8px 0 2px; font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase}
-.bouquet small{opacity:.85; font-size:13px; line-height:1.5; display:block}
+.bouquet .flowers{font-size:52px; line-height:1.15; letter-spacing:2px}
+.bouquet p{margin:8px 0 0; font-size:12.5px; font-weight:700; letter-spacing:.05em; color:var(--wine); text-transform:uppercase}
 
-/* Wish area */
-.wish{padding:22px 22px 6px}
-.wish-box{
-  background:linear-gradient(180deg, #FFF9F0, #FFF);
-  border:1px solid #F5E2C8; border-radius:18px; padding:18px 18px 16px; position:relative;
-}
-@media(prefers-color-scheme:dark){.wish-box{background:#1F1216}}
-.wish-box::before{
-  content:"“"; position:absolute; left:14px; top:2px; font-family:"Playfair Display",serif; font-size:56px; color:var(--gold); opacity:.35; line-height:1;
-}
-.wish-label{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--wine); font-weight:800; margin-left:28px}
-.wish-text{
-  font-size:17px; line-height:1.75; margin:8px 0 0 28px; color:var(--text);
-}
-.wish-text strong{color:var(--wine)}
-.signature{margin:12px 0 0 28px; display:flex; align-items:center; gap:10px}
-.signature .name{font-family:"Great Vibes", cursive; font-size:28px; color:var(--wine); line-height:1}
-.signature span{font-size:13px; color:var(--muted)}
-
-/* Gift interactive */
-.gift-section{padding:16px 22px 8px; display:grid; grid-template-columns:1fr 1fr; gap:16px}
-@media(max-width:680px){.gift-section{grid-template-columns:1fr}}
-.gift-card{
-  border:1px solid var(--line); border-radius:18px; padding:16px; background:var(--card);
-}
-.gift-card h3{margin:0 0 6px; font-size:15px}
-.gift-card p{margin:0; color:var(--muted); font-size:13.5px; line-height:1.6}
-.gift-box-wrap{display:flex; flex-direction:column; align-items:center; padding:8px 0 4px}
+/* Gift */
+.gift-zone{text-align:center; padding:30px 10px 6px}
+.gift-zone h2{font-family:"Playfair Display",serif; font-size:24px; margin:0 0 6px; color:var(--wine)}
+.gift-zone .hint{color:var(--muted); font-size:14.5px; margin:0 0 10px; line-height:1.6}
 .gift-emoji{
-  font-size:72px; line-height:1; cursor:pointer; transition:.25s; filter:drop-shadow(0 12px 16px rgba(0,0,0,.15));
-  background:none;border:none;padding:6px;
+  font-size:104px; line-height:1.1; cursor:pointer; transition:.25s;
+  filter:drop-shadow(0 14px 18px rgba(0,0,0,.18));
+  background:none;border:none;padding:8px;
+  animation:wiggle 2.6s ease-in-out infinite;
 }
-.gift-emoji:hover{transform:scale(1.06) rotate(-2deg)}
+@keyframes wiggle{
+  0%,100%{transform:rotate(0deg)}
+  8%{transform:rotate(-4deg) scale(1.03)}
+  16%{transform:rotate(4deg) scale(1.03)}
+  24%{transform:rotate(0deg)}
+}
+.gift-emoji:hover{transform:scale(1.07)}
 .gift-emoji.opened{animation:pop .5s ease}
-@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.25) rotate(6deg)}100%{transform:scale(1)}}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.3) rotate(6deg)}100%{transform:scale(1)}}
 .btn{
-  appearance:none;border:none;cursor:pointer;font-weight:700;border-radius:999px;padding:11px 16px;font-size:14px;
+  appearance:none;border:none;cursor:pointer;font-weight:700;border-radius:999px;padding:12px 20px;font-size:14.5px;
   display:inline-flex;align-items:center;justify-content:center;gap:8px; text-decoration:none;
 }
 .btn-wine{background:var(--wine);color:white; box-shadow:0 8px 18px rgba(109,20,38,.25)}
-.btn-gold{background:var(--gold2); color:#2B1800}
-.btn-outline{background:white; color:var(--wine); border:1px solid var(--line)}
 .btn:active{transform:scale(.98)}
-#giftMessage{
-  display:none; margin-top:12px; background:var(--rose-light); border:1px dashed #F2A8B8; border-radius:12px; padding:12px; text-align:center; font-size:14px; line-height:1.6;
-}
-#giftMessage.show{display:block}
 
-/* QR BIG SECTION - the star */
-.qr-section{
-  margin:18px 22px 22px;
-  background:linear-gradient(180deg, #FFFDF8, #FFF6E8);
-  border:2px solid var(--gold);
-  border-radius:22px;
-  padding:20px;
-  display:grid; grid-template-columns:300px 1fr; gap:20px; align-items:center;
-  position:relative; overflow:hidden;
+/* Greeting revealed */
+#greeting{
+  display:none; max-width:640px; margin:22px auto 0;
+  background:var(--card); border:1px solid var(--line); border-radius:22px;
+  box-shadow:var(--shadow); padding:26px 24px 22px; text-align:left; position:relative;
 }
-@media(max-width:720px){.qr-section{grid-template-columns:1fr; text-align:center; padding:18px}}
-@media(prefers-color-scheme:dark){.qr-section{background:#22161A}}
-.qr-section::before{
-  content:"20/10 • 20/10 • 20/10"; position:absolute; top:10px; right:14px; font-size:11px; letter-spacing:.18em; color:var(--gold); opacity:.7; font-weight:800;
+#greeting.show{display:block; animation:rise .5s ease}
+@keyframes rise{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)}}
+#greeting::before{
+  content:"“"; position:absolute; left:16px; top:0; font-family:"Playfair Display",serif; font-size:60px; color:var(--gold); opacity:.35; line-height:1;
 }
-.qr-frame{
-  background:white; border-radius:18px; padding:14px; box-shadow:0 12px 28px rgba(0,0,0,.10); border:1px solid #EEE; position:relative; width:fit-content; margin:0 auto;
+#greeting .to{
+  font-family:"Great Vibes", cursive; font-size:32px; color:var(--wine); margin:6px 0 8px 26px; line-height:1.1;
 }
-#qrcode{width:232px;height:232px; display:flex; align-items:center; justify-content:center}
-#qrcode img{width:232px; height:232px; border-radius:6px; display:block; image-rendering:pixelated}
-.qr-frame-label{text-align:center; margin-top:10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:var(--wine)}
-.qr-info h2{
-  font-family:"Playfair Display", serif; font-size:26px; line-height:1.05; margin:4px 0 8px; color:var(--wine);
-}
-.qr-info h2 span{color:var(--text); font-family:"Be Vietnam Pro", sans-serif; font-size:13px; letter-spacing:.12em; text-transform:uppercase; display:block; margin-bottom:6px}
-.qr-info p{line-height:1.7; color:#4A2E33; margin:0 0 12px; font-size:14.5px}
-@media(prefers-color-scheme:dark){.qr-info p{color:var(--muted)}}
-.steps{display:grid; gap:8px; margin:12px 0}
-.step{display:flex; gap:10px; align-items:flex-start; text-align:left; background:white; border:1px solid var(--line); border-radius:12px; padding:10px 12px}
-@media(prefers-color-scheme:dark){.step{background:#2A1A1F}}
-.step b{width:26px;height:26px; flex:0 0 26px; border-radius:50%; background:var(--wine); color:white; display:flex; align-items:center; justify-content:center; font-size:13px}
-.step span{font-size:13.5px; line-height:1.5}
-.step span strong{color:var(--wine)}
-.qr-actions{display:flex; flex-wrap:wrap; gap:8px}
-@media(max-width:720px){.qr-actions{justify-content:center} .steps{ text-align:left}}
-.payload{
-  margin-top:14px; background:white; border:1px solid dashed var(--line); border:1px dashed #E8CFC0; border-radius:12px; padding:12px; font-size:13px; line-height:1.6; color:#5A343C; text-align:left;
-}
-@media(prefers-color-scheme:dark){.payload{background:#1A0F13; color:var(--muted)}}
-.payload strong{color:var(--wine); display:block; margin-bottom:4px; font-size:11px; letter-spacing:.12em; text-transform:uppercase}
+#greeting .body{font-size:16.5px; line-height:1.85; margin:0 0 0 26px}
+#greeting .body strong{color:var(--wine)}
+#greeting .from{margin:14px 0 0 26px; font-size:14.5px; color:var(--muted)}
+#greeting .from .name{font-family:"Great Vibes", cursive; font-size:26px; color:var(--wine); margin-left:6px}
 
-/* How to use strip */
-.how{
-  display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:14px;
-}
-@media(max-width:680px){.how{grid-template-columns:1fr}}
-.how div{background:white; border:1px solid var(--line); border-radius:16px; padding:14px}
-@media(prefers-color-scheme:dark){.how div{background:#2A151C}}
-.how div b{font-size:22px}
-.how div h4{margin:6px 0 4px; font-size:14px}
-.how div p{margin:0; font-size:13px; line-height:1.6; color:var(--muted)}
+/* Plain QR */
+.qr-zone{text-align:center; margin-top:44px; padding-top:30px; border-top:1px solid var(--line)}
+.qr-zone h2{font-family:"Playfair Display",serif; font-size:22px; margin:0 0 6px; color:var(--wine)}
+.qr-zone p{color:var(--muted); font-size:14px; line-height:1.6; margin:0 auto 16px; max-width:460px}
+.qr-plain{display:block; width:250px; height:250px; margin:0 auto; background:#fff}
+.qr-zone .btn{margin-top:18px}
 
-.footer{
-  text-align:center; padding:18px 10px 6px; color:var(--muted); font-size:13px; line-height:1.6;
-}
+.footer{text-align:center; padding:26px 10px 0; color:var(--muted); font-size:13px; line-height:1.6}
 .toast{
   position:fixed; left:50%; bottom:18px; transform:translateX(-50%) translateY(20px); opacity:0; pointer-events:none;
   background:#1A0B10; color:white; padding:10px 14px; border-radius:999px; font-size:13px; font-weight:600; z-index:20; transition:.25s; box-shadow:0 10px 24px rgba(0,0,0,.25); max-width:92vw; text-align:center;
@@ -251,127 +159,60 @@ h1 em{font-family:"Great Vibes", cursive; font-weight:400; font-size:1.35em; col
 <div id="petals" aria-hidden="true"></div>
 
 <div class="wrap">
-  <div class="topnote" aria-hidden="true">
-    <span>✦ Mã QR chứa lời chúc</span>
-    <span class="gold">Quét là hiện — Không cần mở link</span>
-  </div>
+  <header class="head">
+    <div class="date">20 Tháng 10 • Ngày Phụ Nữ Việt Nam</div>
+    <h1>Chúc Mừng 20/10 <em>Tường Vân</em></h1>
+    <p>Một vườn hoa nhỏ và một hộp quà đang chờ em. Hãy chạm vào hộp quà để mở lời chúc anh dành tặng em nhé.</p>
+  </header>
 
-  <article class="card">
-    <!-- HERO -->
-    <div class="card-hero">
-      <div class="hero-inner">
-        <div>
-          <div class="eyebrow"><i></i> 20 Tháng 10 • Ngày Phụ Nữ Việt Nam</div>
-          <h1>Chúc Mừng 20/10 <em>Tường Vân</em></h1>
-          <p class="hero-sub">Tấm thiệp này có một mã QR đặc biệt. Khi Tường Vân dùng điện thoại quét mã, <strong>lời chúc kèm hoa &amp; quà sẽ hiện ra ngay trên màn hình</strong> — đó chính là món quà bất ngờ dành tặng Vân.</p>
-          <div class="hero-badges">
-            <b>💐 Hoa tươi thắm</b>
-            <b>🎁 Quà yêu thương</b>
-            <b style="background:#fff">✨ Luôn tỏa sáng</b>
-          </div>
-        </div>
-        <div class="bouquet">
-          <div class="bouquet-visual">💐🎁</div>
-          <p>Hoa &amp; Quà cho Vân</p>
-          <small>Bó hoa rạng rỡ nhất và món quà nhỏ<br>chứa trọn tình cảm trong mã QR bên dưới</small>
-        </div>
-      </div>
+  <!-- MANY BOUQUETS -->
+  <section class="bouquets" aria-label="Những bó hoa tặng Tường Vân">
+    <div class="bouquet"><div class="flowers">💐</div><p>Bó hoa yêu thương</p></div>
+    <div class="bouquet"><div class="flowers">🌹🌹🌹</div><p>Hồng đỏ thắm</p></div>
+    <div class="bouquet"><div class="flowers">🌷🌷🌷</div><p>Tulip rạng rỡ</p></div>
+    <div class="bouquet"><div class="flowers">🌸🌸🌸</div><p>Anh đào dịu dàng</p></div>
+    <div class="bouquet"><div class="flowers">🌻🌻🌻</div><p>Hướng dương tỏa nắng</p></div>
+    <div class="bouquet"><div class="flowers">💐</div><p>Bó hoa hạnh phúc</p></div>
+  </section>
+
+  <!-- GIFT -->
+  <section class="gift-zone" aria-label="Hộp quà">
+    <h2>Hộp quà dành riêng cho em</h2>
+    <p class="hint">Bên trong hộp quà là câu chúc 20/10 của anh.<br>Chạm vào hộp quà để mở ra nhé!</p>
+    <button class="gift-emoji" id="giftBtn" aria-label="Mở hộp quà">🎁</button>
+    <div>
+      <button class="btn btn-wine" id="openGiftBtn">Mở hộp quà</button>
     </div>
 
-    <!-- WISH PREVIEW -->
-    <div class="wish">
-      <div class="wish-box">
-        <div class="wish-label">Lời chúc được giấu trong mã QR</div>
-        <p class="wish-text" id="wishTextDisplay">
-          Chúc mừng ngày Phụ nữ Việt Nam 20/10! Gửi <strong>Tường Vân</strong> thân thương — chúc em luôn <strong>xinh đẹp rạng ngời như những đóa hoa</strong>, nụ cười luôn nở trên môi, hạnh phúc đong đầy trong tim và mọi ước mơ đều trở thành hiện thực. Tặng em bó hoa tươi thắm nhất và món quà nhỏ chứa trọn yêu thương này!
-        </p>
-      </div>
+    <div id="greeting" role="region" aria-label="Lời chúc 20/10">
+      <p class="to">Gửi em, Tường Vân thân thương!</p>
+      <p class="body">
+        Nhân ngày Phụ nữ Việt Nam 20/10, <strong>anh chúc em</strong> luôn xinh đẹp rạng ngời như những đóa hoa tươi thắm nhất, nụ cười luôn nở trên môi và hạnh phúc mãi đong đầy trong tim.
+        Cảm ơn em đã đến bên anh, làm cho mỗi ngày của anh đều trở nên ý nghĩa hơn.
+        Anh mong em luôn được yêu thương, chiều chuộng, mọi điều tốt đẹp nhất sẽ đến với em và mọi ước mơ của em đều trở thành hiện thực.
+        <strong>Anh thương em nhiều lắm!</strong> Chúc em một ngày 20/10 thật lộng lẫy, ngọt ngào và ngập tràn niềm vui!
+      </p>
+      <p class="from">— Thương em,<span class="name">Anh</span></p>
     </div>
+  </section>
 
-    <!-- GIFT INTERACTIVE -->
-    <div class="gift-section">
-      <div class="gift-card">
-        <h3>🎁 Món quà bất ngờ — chạm để mở</h3>
-        <p>Ngay trên thiệp này cũng có một hộp quà. Chạm vào hộp quà để mở ra lời nhắn riêng trước khi quét QR nhé.</p>
-        <div class="gift-box-wrap">
-          <button class="gift-emoji" id="giftBtn" aria-label="Mở hộp quà">🎁</button>
-          <button class="btn btn-wine" id="openGiftBtn" style="margin-top:6px">Mở quà ngay</button>
-          <div id="giftMessage">
-            <strong style="color:var(--wine); font-size:15px">Dành riêng cho Tường Vân 🌹</strong><br>
-            Em là đóa hoa đẹp nhất trong ngày hôm nay. Chúc em 20/10 thật lộng lẫy, luôn được yêu thương, chiều chuộng và tỏa sáng theo cách của riêng em!
-          </div>
-        </div>
-      </div>
-      <div class="gift-card">
-        <h3>🌸 Bó hoa này không bao giờ tàn</h3>
-        <p>Bó hoa trong mã QR là hoa chữ — quét bao nhiêu lần, lời chúc vẫn hiện nguyên vẹn. Bạn có thể in mã QR này ra, dán lên bó hoa thật hoặc hộp quà thật để tặng Vân.</p>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px">
-          <span style="background:var(--rose-light); border:1px solid #FAD0D8; padding:7px 10px; border-radius:999px; font-size:12px; font-weight:700">🌹 Hồng đỏ — Yêu thương</span>
-          <span style="background:#FFF3D6; border:1px solid #F0D9A0; padding:7px 10px; border-radius:999px; font-size:12px; font-weight:700">🌷 Tulip — Rạng rỡ</span>
-          <span style="background:#EDE7FF; border:1px solid #D6CFFF; padding:7px 10px; border-radius:999px; font-size:12px; font-weight:700">💐 Cẩm tú — Hạnh phúc</span>
-        </div>
-        <p style="margin-top:12px; font-size:13px">💡 <strong>Mẹo tặng:</strong> Chụp / tải mã QR bên dưới → in ra khổ nhỏ → dán lên thiệp, bó hoa hoặc hộp quà. Vân quét là thấy lời chúc ngay.</p>
-      </div>
-    </div>
-
-    <!-- QR SECTION - MAIN -->
-    <section class="qr-section" id="qrSection" aria-label="Mã QR lời chúc">
-      <div>
-        <div class="qr-frame">
-          <div id="qrcode">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABCwAAAQsCAIAAADVcJrHAAAq60lEQVR4nO3ZzZHbTJAt0NcvuIcFtIj20iJaAAswi2820kSI2VL2RRZ4zhpRlfVL3qiv4zj+HwAAQMr/P7sAAADgswghAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gd4/tfnYJp3nur5Z2KnNY6WtaO9N07dWuOeySrGfaPqy4as1dptW84m/KtN+CpGTN0+7VpE/+fV/xTugybS28hAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRt7ML+BvP/XV2Cd/22O6xvirzk6ynS6XmrrFX2pm2D1dc9656utpJzmHXPuzqq8tVz8WK7ST3c3Jc0yRrnrZeFSvePyvuw2m/7xVeQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAICo29kF/JTHdo/19dxfsb66xlWpudLXivPc1U5yLaaNvauvyhwma+7SNfYu0+pZcd2TNU87pxXT9k9F8lxMqzm5n7v6Su6ximl3+Iq8hAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRt7MLoN9zf7395rHdW9qZpjKuq5q2pl31TFvTFeewS3K9pq17xbSau/ZG8iwn93yyL7+n8H95CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXwDme+6ulncd2j/VVUekrWXOlry5dY0/qWotpa1rpq2tc0+pJnveKaXsjacX1mnZOk6b9XkyzYs38mZcQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIOp2dgE/5bm/zi6Bb3hs97ffVNa0q52KaTVX2qlInp1kzV19rahrj007g12SNU87X1e9x6aZNs8VV+2ry7R6VuQlBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIi6nV3A33hs97NLWF5lDp/7K1DJTF3zs2I7FdP2z4rz3DU/K677iu0krbh/tHO9drqsOK5pd8JVeQkBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAor6O4zi7Br7hsd1b2nnur5a+Ku0kddU8bexd616x4ri61nSaFdeiS9fYk2f5k++Nimljn/ZbMO0+vOrvO3N4CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACivo7jOLuGXzy2+9tvnvurpZ1pKuPq8snzXNE19q41veo8JyX3c/IsV0zbP8lzMe1eXdGK+3nFO3zFvbrivbriOZ12Brt4CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXMN1zf7395rHdW9qpqPRV0TWuLtPq6VrTrnamzU/Xfq5Inq+rntPkuFasuSK556etV9K0mqfV0+WT99i0sVfaWfEeq/ASAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAER9Hcdxdg2neWz3t98899dyfSWtOK6umivtdEnW09VX8uxMM+3eSO6NLivu52ntVHzyHd5lxb2atOJv5bR7dcV1r/ASAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAER9Hcdxdg3f9tjuZ5fwbc/9FeurMj9d9ehrjmnz02XFmium7dWu+Zk2rqRpc1gx7VxUdO3nZDtJ09b0qnf4NNP2YYWXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDq6ziOs2v4xWO7t7Tz3F8tfVXaqejqq2t+KpJzOG0tuqw49q6+kpL3RpdPrrkieR9Ou3srrnpO7ec57VRcdQ7J8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2Db94bPe33zz313LtVFT6qkjWc9Wxr+iq67XiWZ5m2nolJdf0qvM87Tdl2llWz59NW/dp53Ta+UryEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABEfR3HcXYN3/bY7rG+nvvr7TfJerp0javSTkXXHCbXKzn2rr4qpu3nFed52n5O7p8uK+7DaXts2r0xbR9O+y2omDbP0/6PVUyredqaJnkJAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKJuZxfwU5776+03j+3e8k2lry5XradrvVbUNfbkHCb3WMWK89N1/1RMG1fX/lnx7HSZds8n+5q2D7tMG/u0eyO5D6+6N6bxEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABE3c4u4HeP7T6qnS6Vep77K1BJXbKeafOz4tinzWHXGZy27iuOK7nHuiT3/IrzM20fTpufiuSdOe2/zYpjT+6xZM1d45r2H6DCSwgAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQ9XUcx9k1/IjHdm9p57m/Wtr5ZF1rUTFtvSpjr9S84hyuWPM0K85hsuaK5N5Ycb0qpt1jyb36yX198n5OWvHsdPESAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gbzy2+9tvnvsrUMl/KvVM0zU/ybFfteau/Zxsp2LFmleUnJ8V795p572ia1wrnsGr9tUleQZX/M2dtp+TkndvFy8hAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQNTt7AJ+99jub7957q+WdioqfVW+qUjWPK2vZDvJ+Zk29q52KrrmMKlr7F1WPKcrmrbnV7zDV7TivXrV34uKFf8fXvXsdPESAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAER9Hcdxdg3f9tjusb6e++vtN59cT0Wy5q6+ku10WbGeLtPGNW0fVly15qRp45p2JyRNG/u0s1OR3IcVK9YzbR9O4yUEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiLqdXcDfeO6vlnYe273lm4pKzV19VXTNYYU5/HeVcX3y/EyTXK+udrr66rLifk7+NlUk67nqfbjiPTZtLab1lbxbpt3z0/azlxAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAg6us4jrNr+MVju7/95rm/LtlXUmVcyfmp6Kqnay2mzeG0+alIzuG0/Vwx7d6omHZnTrsTulz1XEy7M7usWHPFVfdGxbTf3Gm/XxVeQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAICo29kF/JTHdh/VznN/tbTTpTKurppX7GvaunfVU5Gcny5XXfeumldc0xXXa9paTKsn+Ts47c5M9jXtLFcka16xr+RvQZKXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDqdnYBZ3rur7ffPLZ7S19d7VRUxlVRqXlaX8l5Ts5P19iT81MxrZ6KrjWtSJ6LFc9y8k5Izs+KkueiYlo9K/4H6DLtd3maaf9tkryEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFG3swu4guf+ivX12O4t3yR1zU9lXJW+utrp0lXPJ499xb6mmTY/yX1Y0bWm087XNJ98j3Wt17R6kq667lddLy8hAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQNTt7AL+xmO7n13Ct1Vqfu6vlr662qnUnFyLrnFVdK1Xct2Ta5EcV0XX2Fe8W6aZtu5d5zRp2r2RXNOKaWs6rZ4u0/ZY8p6f9ru84v6p8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARN3OLuBvPPfX2SV8m5rXkhz7Y7u3tFOpOdlX0opjr9TT1VdyfiqSY0+Oq8u08/XJc5gc+7Tfna57Y9p+TtYzbezTeAkBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAom5nF/BTHtv9kn11qdT83F/L9dXlqmuabOeTrXi+Kt+s2FfXfu7qa8XzNe1+rkiue1c7yb2x4ppWTDtfK/7/SfISAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAER9Hcdxdg0/4rHd337z3F/L9dWlUnOXytin1TPNtD2WXK+K5FmumLbHrjquiq6zs2I7Fcmak8zPn5mff7finTBtnr2EAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFG3swv4G4/tfnYJ39ZV83N/6WtIO12S9ax4dqzpv/eVNO1OSEreURUrzmFFcp6nzc+0u65i2j6c9n+jYto+7OIlBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIj6Oo7j7Bq+7bHdY30991esry6V+amMKznPSV1jT+6NFdciucemrcVV742K5Pla8bcgOfarzmHFtHmusBaZviqm7Y2KafVUeAkBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAor6O4zi7hl88tvvbb577Szv/KFnzNF1zWDFtbyTXKznPFdPWokvXmk5br4ppa1Gh5n931T0/bZ6nSa77in2tyEsIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAEHU7u4C/8djuZ5fwi0o9z/0VqKSuq+Zp7SQl61lxfpK6xj6tneRdt+J5T7ZTseL+Sd4bXWuRHNe0e77ik89OV1/JPTbtPkzyEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABE3c4u4HfP/dXSzmO7t3xTUam50lfX2CuSfXWNfdp6TVvT5Dx3jSu57tP2YVLy7HS188nz3GXFeU7emRXOzp9NW6+Kab/dyb0xjZcQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIOp2dgG/e2z3lnae+yvWV0WlnmQ7XbrqSa7FNNPmsOvsTGtnmuRZ7prDaXdmcs9XTNvPXfV09dXVTvJuSVrxzpw2z9N+C6at6bQ97yUEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiPo6juPsGn7EY7u//ea5vwKV/KdSz4q65nDa/FTG1bXHusaeXIvk/HSZNs8VyTm86npVTNvP0/bqtDth2lqseC6uul4V0+6Wiml3QhcvIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAEDU13EcZ9fwbY/t/vab5/5arp2KSl8VXeNasa+krnF1mbYPryq55yumnYuK5L1a8cnrNe1+dv/82YrnYsU9P+2er5g2z15CAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgKiv4zjOruEXj+3e0s5zf7X01dVORaWvq0quRbKdiqvuw656KpLz0yV53lc8FxUr7rFPvjem7UN35hzW9M+m3T9dvIQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUV/HcZxdw494bPezS/jFc3+dXcIvuubnquPqUpmfaWtRqSc5ri4rrkXFtJq79k9XX12uuucrkntsxfvnk38HV9xjFdP2fFdf03gJAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKK+juM4u4ZfPLb722+e++uSfVWsOPYK87OWq87PVe+Err4quuqZNs8V02qedh+ueG9M26vT5nnFvlbch1flJQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACI+jqO4+wavu2x3Vvaee6vlnYq9VT6So6rq6+KrnnuctV5ruiqedrYVxzXtL4qptVTMW29VlyLT77HKqadi2n1VCTXa5rkb9O0OfQSAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gd4/t/vab5/4a1Vflm66+Ku1UvqlIznNF1/yQkVyv5Pmatg9XrKci+VuQNO13Z8W90dXXtN+LFX8rp/3fSJp2R604h15CAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgKjb2QX87rm/RvX12O6xvrp09VUZe1dfybWoWLGeZF9deyO5V5Pr1SW5FivOz4r3c5fk/ZzcG9Pu1WnznDzL08beZdocdrWz4j3mJQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIup1dwN94bPdYX8/99fabSj1dNXfVU2mnYsW16JJci+SaTjNtPyf3WMW0/dPV17TzvuIcdkmuRXJcV90/Xabt52ntTLPiuLyEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFG3swv43WO7v/3mub9ifVW+qUjWXOmra1wVyXquOvYVx1XRVXPXHE67W1bcP11z2CVZT/L3q2JaPV2S45o2P8l7vmLFPTbtDFYkf7+SvIQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUbezC/jdc3+dXcK3VWp+bPeWdroka660M01XzZX56Vr3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zrT988nzk7zDp617lxXXK7mfk7rOV5dpe37a/FRMm8OKFWuu8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2Db94bPe33zz3V6CSXl3jSraTlBx7RXJ+ptWcPF/24b/75Dmcdk5X3BvT7p8u0/4nXHVvTNtj0+aw4qrzU+ElBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIi6nV3AT3ls91hfz/0V6yupMq7KPCfbmaar5uQ8J89Ol+TeSK5pxbTz1TWuq94tK56vaftnxb5W/D1N7tXkvZGUXK8V/yN5CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXQL/Hdn/7zXN/xdqp6GqnIjmuiko9Xe1MW/fk2CumzU9F19inSa5FVzufvO7JOZw29mnM4Z+teM9flZcQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIOp2dgH0e+6vt988tvuodrpU6plm2npVdNXTtTem7cOkaXOYrKernRXP4LR1T969K951FdP2z4pnZ8V2PpmXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDqdnYBP+W5v84u4UdUxvXY7i19Vdrpqic5rmRfSV3z3CW5Xl3jmnZ2kn2teJYrkuPqctXfr4oV90aXaX2t+H+jYtq4PpmXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDqdnYBf+Ox3c8u4TTJsT/319tvptVTMa3mSj1XHTt/1rVeyXVfcY+tuFe77o0V53DafZi8w5NjT46ry7S16KpnxbWo8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2DQAAwAfxEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABE/Q/mQUhuSQpkOgAAAABJRU5ErkJggg==" alt="Mã QR chứa lời chúc 20/10 cho Tường Vân — quét để hiện câu chúc kèm hoa và quà" width="232" height="232" />
-          </div>
-          <div class="qr-frame-label">Quét để nhận lời chúc • Hoa • Quà</div>
-        </div>
-        <p style="text-align:center; font-size:12px; color:var(--muted); margin:10px 6px 0; line-height:1.5">Mã QR chứa văn bản thuần<br>Quét bằng Camera / Zalo đều đọc được</p>
-      </div>
-
-      <div class="qr-info">
-        <h2><span>Mã QR chính thức</span>Quét mã này là ra<br>câu chúc, hoa &amp; quà</h2>
-        <p>Đây <strong>không phải QR dẫn tới link</strong>, mà là QR chứa trực tiếp lời chúc. Điện thoại quét xong sẽ hiển thị toàn bộ câu chúc bên dưới — kèm biểu tượng hoa và quà.</p>
-
-        <div class="steps">
-          <div class="step"><b>1</b><span><strong>Mở Camera</strong> điện thoại (hoặc app Zalo → Quét QR) và hướng vào mã bên trái.</span></div>
-          <div class="step"><b>2</b><span>Điện thoại sẽ hiện thông báo <strong>“Xem văn bản”</strong> — chạm vào đó.</span></div>
-          <div class="step"><b>3</b><span><strong>Lời chúc hiện ra ngay:</strong> hoa 💐, quà 🎁 và lời chúc 20/10 dành cho Tường Vân.</span></div>
-        </div>
-
-        <div class="qr-actions">
-          <a class="btn btn-wine" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABCwAAAQsCAIAAADVcJrHAAAq60lEQVR4nO3ZzZHbTJAt0NcvuIcFtIj20iJaAAswi2820kSI2VL2RRZ4zhpRlfVL3qiv4zj+HwAAQMr/P7sAAADgswghAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gd4/tfnYJp3nur5Z2KnNY6WtaO9N07dWuOeySrGfaPqy4as1dptW84m/KtN+CpGTN0+7VpE/+fV/xTugybS28hAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRt7ML+BvP/XV2Cd/22O6xvirzk6ynS6XmrrFX2pm2D1dc9656utpJzmHXPuzqq8tVz8WK7ST3c3Jc0yRrnrZeFSvePyvuw2m/7xVeQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAICo29kF/JTHdo/19dxfsb66xlWpudLXivPc1U5yLaaNvauvyhwma+7SNfYu0+pZcd2TNU87pxXT9k9F8lxMqzm5n7v6Su6ximl3+Iq8hAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRt7MLoN9zf7395rHdW9qZpjKuq5q2pl31TFvTFeewS3K9pq17xbSau/ZG8iwn93yyL7+n8H95CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXwDme+6ulncd2j/VVUekrWXOlry5dY0/qWotpa1rpq2tc0+pJnveKaXsjacX1mnZOk6b9XkyzYs38mZcQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIOp2dgE/5bm/zi6Bb3hs97ffVNa0q52KaTVX2qlInp1kzV19rahrj007g12SNU87X1e9x6aZNs8VV+2ry7R6VuQlBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIi6nV3A33hs97NLWF5lDp/7K1DJTF3zs2I7FdP2z4rz3DU/K677iu0krbh/tHO9drqsOK5pd8JVeQkBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAor6O4zi7Br7hsd1b2nnur5a+Ku0kddU8bexd616x4ri61nSaFdeiS9fYk2f5k++Nimljn/ZbMO0+vOrvO3N4CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACivo7jOLuGXzy2+9tvnvurpZ1pKuPq8snzXNE19q41veo8JyX3c/IsV0zbP8lzMe1eXdGK+3nFO3zFvbrivbriOZ12Brt4CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXMN1zf7395rHdW9qpqPRV0TWuLtPq6VrTrnamzU/Xfq5Inq+rntPkuFasuSK556etV9K0mqfV0+WT99i0sVfaWfEeq/ASAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAER9Hcdxdg2neWz3t98899dyfSWtOK6umivtdEnW09VX8uxMM+3eSO6NLivu52ntVHzyHd5lxb2atOJv5bR7dcV1r/ASAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAER9Hcdxdg3f9tjuZ5fwbc/9FeurMj9d9ehrjmnz02XFmium7dWu+Zk2rqRpc1gx7VxUdO3nZDtJ09b0qnf4NNP2YYWXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDq6ziOs2v4xWO7t7Tz3F8tfVXaqejqq2t+KpJzOG0tuqw49q6+kpL3RpdPrrkieR9Ou3srrnpO7ec57VRcdQ7J8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2Db94bPe33zz313LtVFT6qkjWc9Wxr+iq67XiWZ5m2nolJdf0qvM87Tdl2llWz59NW/dp53Ta+UryEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABEfR3HcXYN3/bY7rG+nvvr7TfJerp0javSTkXXHCbXKzn2rr4qpu3nFed52n5O7p8uK+7DaXts2r0xbR9O+y2omDbP0/6PVUyredqaJnkJAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKJuZxfwU5776+03j+3e8k2lry5XradrvVbUNfbkHCb3WMWK89N1/1RMG1fX/lnx7HSZds8n+5q2D7tMG/u0eyO5D6+6N6bxEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABE3c4u4HeP7T6qnS6Vep77K1BJXbKeafOz4tinzWHXGZy27iuOK7nHuiT3/IrzM20fTpufiuSdOe2/zYpjT+6xZM1d45r2H6DCSwgAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQ9XUcx9k1/IjHdm9p57m/Wtr5ZF1rUTFtvSpjr9S84hyuWPM0K85hsuaK5N5Ycb0qpt1jyb36yX198n5OWvHsdPESAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gbzy2+9tvnvsrUMl/KvVM0zU/ybFfteau/Zxsp2LFmleUnJ8V795p572ia1wrnsGr9tUleQZX/M2dtp+Tkndv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kntsxfvnk38HV9xjFdP2fFdf03gJAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKK+juM4u4ZfPLb722+e++uSfVWsOPYK87OWq87PVe+Err4quuqZNs8V02qedh+ueG9M26vT5nnFvlbch1flJQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACI+jqO4+wavu2x3Vvaee6vlnYq9VT6So6rq6+KrnnuctV5ruiqedrYVxzXtL4qptVTMW29VlyLT77HKqadi2n1VCTXa5rkb9O0OfQSAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gd4/t/vab5/4a1Vflm66+Ku1UvqlIznNF1/yQkVyv5Pmatg9XrKci+VuQNO13Z8W90dXXtN+LFX8rp/3fSJp2R604h15CAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgKjb2QX87rm/RvX12O6xvrp09VUZe1dfybWoWLGeZF9deyO5V5Pr1SW5FivOz4r3c5fk/ZzcG9Pu1WnznDzL08beZdocdrWz4j3mJQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIup1dwN94bPdYX8/99fabSj1dNXfVU2mnYsW16JJci+SaTjNtPyf3WMW0/dPV17TzvuIcdkmuRXJcV90/Xabt52ntTLPiuLyEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFG3swv43WO7v/3mub9ifVW+qUjWXOmra1wVyXquOvYVx1XRVXPXHE67W1bcP11z2CVZT/L3q2JaPV2S45o2P8l7vmLFPTbtDFYkf7+SvIQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUbezC/jdc3+dXcK3VWp+bPeWdroka660M01XzZX56Vr3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zrT988nzk7zDp617lxXXK7mfk7rOV5dpe37a/FRMm8OKFWuu8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2Db94bPe33zz3V6CSXl3jSraTlBx7RXJ+ptWcPF/24b/75Dmcdk5X3BvT7p8u0/4nXHVvTNtj0+aw4qrzU+ElBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIi6nV3AT3ls91hfz/0V6yupMq7KPCfbmaar5uQ8J89Ol+TeSK5pxbTz1TWuq94tK56vaftnxb5W/D1N7tXkvZGUXK8V/yN5CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXQL/Hdn/7zXN/xdqp6GqnIjmuiko9Xe1MW/fk2CumzU9F19inSa5FVzufvO7JOZw29mnM4Z+teM9flZcQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIOp2dgH0e+6vt988tvuodrpU6plm2npVdNXTtTem7cOkaXOYrKernRXP4LR1T969K951FdP2z4pnZ8V2PpmXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDqdnYBP+W5v84u4UdUxvXY7i19Vdrpqic5rmRfSV3z3CW5Xl3jmnZ2kn2teJYrkuPqctXfr4oV90aXaX2t+H+jYtq4PpmXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDqdnYBf+Ox3c8u4TTJsT/319tvptVTMa3mSj1XHTt/1rVeyXVfcY+tuFe77o0V53DafZi8w5NjT46ry7S16KpnxbWo8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2DQAAwAfxEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABE/Q/mQUhuSQpkOgAAAABJRU5ErkJggg==" download="QR-Chuc-Mung-20-10-Tuong-Van.png">⬇ Tải ảnh mã QR</a>
-          <button class="btn btn-gold" id="copyBtn">📋 Sao chép lời chúc</button>
-          <button class="btn btn-outline" id="downloadCardBtn">🎴 Tải thiệp QR đẹp</button>
-        </div>
-
-        <div class="payload">
-          <strong>Nội dung chính xác trong mã QR khi quét:</strong>
-          <span id="payloadText"></span>
-        </div>
-      </div>
-    </section>
-  </article>
-
-  <div class="how">
-    <div><b>📸</b><h4>Gửi qua điện thoại</h4><p>Chụp màn hình thiệp này hoặc tải ảnh QR rồi gửi cho Tường Vân qua Zalo / Messenger. Vân lưu ảnh và quét lại bất cứ lúc nào.</p></div>
-    <div><b>🖨</b><h4>In ra tặng kèm hoa thật</h4><p>In ảnh QR khổ 5×5 cm, dán lên thiệp giấy hoặc hộp quà. Cách tặng này vừa bất ngờ vừa rất lộng lẫy.</p></div>
-    <div><b>💐</b><h4>Quét thử ngay</h4><p>Dùng một điện thoại khác quét mã trên màn hình này để kiểm tra. Nếu bạn đang xem bằng điện thoại, hãy tải ảnh QR và mở bằng Zalo quét từ thư viện.</p></div>
-  </div>
+  <!-- PLAIN QR -->
+  <section class="qr-zone" aria-label="Mã QR">
+    <h2>Mã QR của thiệp này</h2>
+    <p>Mã QR trần, không trang trí. Quét mã là mở ra trang thiệp có nhiều bó hoa và hộp quà này.</p>
+    <img class="qr-plain" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAzQAAAM0AQAAAABFCVraAAAEeElEQVR4nO3dTXLcIBCG4a9T3ks3yP2PlRvACchCIGhA/inPOBHz9mJm9PuU2ZiCprGkn4j460cYCQcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHB+efOtbHLpnt8+faW7pf7gUT56mBg4ODg4OD82BnS03kc9FMir67EM3aWySlFK5eMHGeGDg4ODg4ODjfj7fu2I6vLRzf6TyXFE06PrYk0xaOq/mW8kT3ghKrtRsODg4ODs4LO2Zm1g4OBCmlP+c5vTMF8RXnYYGDg4ODg4Pz/ejHD7rIkwRbkhR3pTx0cB52913Hau2Gg4ODg4OzstP3D+b/6GvXoIQ1Fz7xguXaDQcHBwcHZ2VHF/mEkrSl9MWP8QU5wmrthoODg4ODs7LTjB9czhHk1ERJOpMU0/FRztVMxYtYrd1wcHBwcHBWdtz4QRkDqMmHyUf7WDh/u0GEnMIY8gXGD3BwcHBwcO7nuPyDOkywnV2BuCsp7sdBXe5o08fKSEJ79YjV2g0HBwcHB+dFnDpC0JVONPvtkwvGrIO65tFs96MLg/PUwMHBwcHBwfl+NOMHuQxSiVL3KE1rJrU5CVsoax6PC7vkFztovXbDwcHBwcFZ2XHzC1toOgm5JKLLRWz/5bseQO1W1IWPLlZrNxwcHBwcnJUdt37hKJ7cdhLaaYVjXCCch9ZfTU3aQvfscu2Gg4ODg4OzstOvUCjrDaS6GmG4eTw3LGLo37dau+Hg4ODg4KzsjCsYLxY51nPdfV1ppNlOjvQPcHBwcHBwbuX09Q/aMgeb7xWEoWvQ1jpwT9A/wMHBwcHBubMz5h/UQ7WrESS1Oz3X1Q315jZdsaQylFit3XBwcHBwcFZ2/PqFNqXQzkzF3CvolyxKuTRSs7TxTHB0r9J67YaDg4ODg/MiTlcVqZY8yrMK0azOPpiZWZ5QiGb5MVcu6cp5auDg4ODg4OA8IGZLF9p0hCC5jRTOw+BzEuTTETa/koH8AxwcHBwcnBs5ff3E+itPEGxJ5gsjdDfXWkh5VqGfWpC0Xrvh4ODg4OCs7Fyvbxx2WAjtE59Y7MD4AQ4ODg4Ozk0d1z8IbQWkeYcgaFoQaSiCkJhfwMHBwcHBua3T1z+o5+Y9ANdJaHMSakxvWa3dcHBwcHBwVnYu6iu7PsOsDNJlLuL8pfQPcHBwcHBwbuRM8xNzlP0ba+QySOVcLZeUD7dQHutjtXbDwcHBwcFZ2en3d65h/kJenFD3bXbVkySdKx5Kd4H9G3FwcHBwcG7qTPMPhlyD4OcS3o/NpyYyv4CDg4ODg3M35+39y21JA1fXYNhwQZIU92bUwNh/AQcHBwcHZ1GnFE/OH6WqstneDizYEXt+QpLPaPx//h4cHBwcHBycD6MfP0j9Ydzdxo41ZzHasWdTvZDTEepmj4wf4ODg4ODg3NJx/YM4LGHIJ47URHO9h6OnsPdXSychkJ+Ig4ODg4NzV8c+TDd8SMTV2g0HBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwenxl91xY/9ZvPmZwAAAABJRU5ErkJggg==" alt="Mã QR mở trang thiệp chúc mừng 20/10 tặng Tường Vân" width="250" height="250"/>
+    <a class="btn btn-wine" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAzQAAAM0AQAAAABFCVraAAAEeElEQVR4nO3dTXLcIBCG4a9T3ks3yP2PlRvACchCIGhA/inPOBHz9mJm9PuU2ZiCprGkn4j460cYCQcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHB+efOtbHLpnt8+faW7pf7gUT56mBg4ODg4OD82BnS03kc9FMir67EM3aWySlFK5eMHGeGDg4ODg4ODjfj7fu2I6vLRzf6TyXFE06PrYk0xaOq/mW8kT3ghKrtRsODg4ODs4LO2Zm1g4OBCmlP+c5vTMF8RXnYYGDg4ODg4Pz/ejHD7rIkwRbkhR3pTx0cB52913Hau2Gg4ODg4OzstP3D+b/6GvXoIQ1Fz7xguXaDQcHBwcHZ2VHF/mEkrSl9MWP8QU5wmrthoODg4ODs7LTjB9czhHk1ERJOpMU0/FRztVMxYtYrd1wcHBwcHBWdtz4QRkDqMmHyUf7WDh/u0GEnMIY8gXGD3BwcHBwcO7nuPyDOkywnV2BuCsp7sdBXe5o08fKSEJ79YjV2g0HBwcHB+dFnDpC0JVONPvtkwvGrIO65tFs96MLg/PUwMHBwcHBwfl+NOMHuQxSiVL3KE1rJrU5CVsoax6PC7vkFztovXbDwcHBwcFZ2XHzC1toOgm5JKLLRWz/5bseQO1W1IWPLlZrNxwcHBwcnJUdt37hKJ7cdhLaaYVjXCCch9ZfTU3aQvfscu2Gg4ODg4OzstOvUCjrDaS6GmG4eTw3LGLo37dau+Hg4ODg4KzsjCsYLxY51nPdfV1ppNlOjvQPcHBwcHBwbuX09Q/aMgeb7xWEoWvQ1jpwT9A/wMHBwcHBubMz5h/UQ7WrESS1Oz3X1Q315jZdsaQylFit3XBwcHBwcFZ2/PqFNqXQzkzF3CvolyxKuTRSs7TxTHB0r9J67YaDg4ODg/MiTlcVqZY8yrMK0azOPpiZWZ5QiGb5MVcu6cp5auDg4ODg4OA8IGZLF9p0hCC5jRTOw+BzEuTTETa/koH8AxwcHBwcnBs5ff3E+itPEGxJ5gsjdDfXWkh5VqGfWpC0Xrvh4ODg4OCs7Fyvbxx2WAjtE59Y7MD4AQ4ODg4Ozk0d1z8IbQWkeYcgaFoQaSiCkJhfwMHBwcHBua3T1z+o5+Y9ANdJaHMSakxvWa3dcHBwcHBwVnYu6iu7PsOsDNJlLuL8pfQPcHBwcHBwbuRM8xNzlP0ba+QySOVcLZeUD7dQHutjtXbDwcHBwcFZ2en3d65h/kJenFD3bXbVkySdKx5Kd4H9G3FwcHBwcG7qTPMPhlyD4OcS3o/NpyYyv4CDg4ODg3M35+39y21JA1fXYNhwQZIU92bUwNh/AQcHBwcHZ1GnFE/OH6WqstneDizYEXt+QpLPaPx//h4cHBwcHBycD6MfP0j9Ydzdxo41ZzHasWdTvZDTEepmj4wf4ODg4ODg3NJx/YM4LGHIJ47URHO9h6OnsPdXSychkJ+Ig4ODg4NzV8c+TDd8SMTV2g0HBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwenxl91xY/9ZvPmZwAAAABJRU5ErkJggg==" download="QR-Thiep-20-10-Tuong-Van.png">⬇ Tải mã QR</a>
+  </section>
 
   <p class="footer">
     Thiệp dành riêng cho <strong>Tường Vân</strong> • Ngày Phụ nữ Việt Nam 20/10<br>
-    Chúc Vân luôn xinh đẹp, hạnh phúc và tỏa sáng.
+    Chúc em luôn xinh đẹp, hạnh phúc và tỏa sáng.
   </p>
 </div>
 
-<div class="toast" id="toast">Đã sao chép lời chúc!</div>
+<div class="toast" id="toast"></div>
 
 <script>
-// === LỜI CHÚC CHÍNH THỨC NẰM TRONG QR ===
-var WISH_TEXT = "🌸 Chúc mừng 20/10, Tường Vân thân thương! 🌸\n\nChúc em luôn xinh đẹp rạng ngời như những đóa hoa, nụ cười luôn nở trên môi, hạnh phúc đong đầy trong tim và mọi ước mơ đều trở thành hiện thực!\n\n💐 Tặng em bó hoa tươi thắm nhất\n🎁 Và món quà nhỏ chứa trọn yêu thương này!\n\nChúc em một ngày 20/10 thật lộng lẫy, rạng rỡ và ngập tràn niềm vui!";
-
-document.getElementById('payloadText').textContent = WISH_TEXT;
-// QR is a pre-generated scannable image at data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABCwAAAQsCAIAAADVcJrHAAAq60lEQVR4nO3ZzZHbTJAt0NcvuIcFtIj20iJaAAswi2820kSI2VL2RRZ4zhpRlfVL3qiv4zj+HwAAQMr/P7sAAADgswghAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gd4/tfnYJp3nur5Z2KnNY6WtaO9N07dWuOeySrGfaPqy4as1dptW84m/KtN+CpGTN0+7VpE/+fV/xTugybS28hAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRt7ML+BvP/XV2Cd/22O6xvirzk6ynS6XmrrFX2pm2D1dc9656utpJzmHXPuzqq8tVz8WK7ST3c3Jc0yRrnrZeFSvePyvuw2m/7xVeQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAICo29kF/JTHdo/19dxfsb66xlWpudLXivPc1U5yLaaNvauvyhwma+7SNfYu0+pZcd2TNU87pxXT9k9F8lxMqzm5n7v6Su6ximl3+Iq8hAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRt7MLoN9zf7395rHdW9qZpjKuq5q2pl31TFvTFeewS3K9pq17xbSau/ZG8iwn93yyL7+n8H95CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXwDme+6ulncd2j/VVUekrWXOlry5dY0/qWotpa1rpq2tc0+pJnveKaXsjacX1mnZOk6b9XkyzYs38mZcQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIOp2dgE/5bm/zi6Bb3hs97ffVNa0q52KaTVX2qlInp1kzV19rahrj007g12SNU87X1e9x6aZNs8VV+2ry7R6VuQlBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIi6nV3A33hs97NLWF5lDp/7K1DJTF3zs2I7FdP2z4rz3DU/K677iu0krbh/tHO9drqsOK5pd8JVeQkBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAor6O4zi7Br7hsd1b2nnur5a+Ku0kddU8bexd616x4ri61nSaFdeiS9fYk2f5k++Nimljn/ZbMO0+vOrvO3N4CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACivo7jOLuGXzy2+9tvnvurpZ1pKuPq8snzXNE19q41veo8JyX3c/IsV0zbP8lzMe1eXdGK+3nFO3zFvbrivbriOZ12Brt4CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXMN1zf7395rHdW9qpqPRV0TWuLtPq6VrTrnamzU/Xfq5Inq+rntPkuFasuSK556etV9K0mqfV0+WT99i0sVfaWfEeq/ASAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAER9Hcdxdg2neWz3t98899dyfSWtOK6umivtdEnW09VX8uxMM+3eSO6NLivu52ntVHzyHd5lxb2atOJv5bR7dcV1r/ASAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAER9Hcdxdg3f9tjuZ5fwbc/9FeurMj9d9ehrjmnz02XFmium7dWu+Zk2rqRpc1gx7VxUdO3nZDtJ09b0qnf4NNP2YYWXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDq6ziOs2v4xWO7t7Tz3F8tfVXaqejqq2t+KpJzOG0tuqw49q6+kpL3RpdPrrkieR9Ou3srrnpO7ec57VRcdQ7J8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2Db94bPe33zz313LtVFT6qkjWc9Wxr+iq67XiWZ5m2nolJdf0qvM87Tdl2llWz59NW/dp53Ta+UryEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABEfR3HcXYN3/bY7rG+nvvr7TfJerp0javSTkXXHCbXKzn2rr4qpu3nFed52n5O7p8uK+7DaXts2r0xbR9O+y2omDbP0/6PVUyredqaJnkJAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKJuZxfwU5776+03j+3e8k2lry5XradrvVbUNfbkHCb3WMWK89N1/1RMG1fX/lnx7HSZds8n+5q2D7tMG/u0eyO5D6+6N6bxEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABE3c4u4HeP7T6qnS6Vep77K1BJXbKeafOz4tinzWHXGZy27iuOK7nHuiT3/IrzM20fTpufiuSdOe2/zYpjT+6xZM1d45r2H6DCSwgAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQ9XUcx9k1/IjHdm9p57m/Wtr5ZF1rUTFtvSpjr9S84hyuWPM0K85hsuaK5N5Ycb0qpt1jyb36yX198n5OWvHsdPESAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gbzy2+9tvnvsrUMl/KvVM0zU/ybFfteau/Zxsp2LFmleUnJ8V795p572ia1wrnsGr9tUleQZX/M2dtp+Tkndv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kntsxfvnk38HV9xjFdP2fFdf03gJAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKK+juM4u4ZfPLb722+e++uSfVWsOPYK87OWq87PVe+Err4quuqZNs8V02qedh+ueG9M26vT5nnFvlbch1flJQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACI+jqO4+wavu2x3Vvaee6vlnYq9VT6So6rq6+KrnnuctV5ruiqedrYVxzXtL4qptVTMW29VlyLT77HKqadi2n1VCTXa5rkb9O0OfQSAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAETdzi7gd4/t/vab5/4a1Vflm66+Ku1UvqlIznNF1/yQkVyv5Pmatg9XrKci+VuQNO13Z8W90dXXtN+LFX8rp/3fSJp2R604h15CAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgKjb2QX87rm/RvX12O6xvrp09VUZe1dfybWoWLGeZF9deyO5V5Pr1SW5FivOz4r3c5fk/ZzcG9Pu1WnznDzL08beZdocdrWz4j3mJQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIup1dwN94bPdYX8/99fabSj1dNXfVU2mnYsW16JJci+SaTjNtPyf3WMW0/dPV17TzvuIcdkmuRXJcV90/Xabt52ntTLPiuLyEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFG3swv43WO7v/3mub9ifVW+qUjWXOmra1wVyXquOvYVx1XRVXPXHE67W1bcP11z2CVZT/L3q2JaPV2S45o2P8l7vmLFPTbtDFYkf7+SvIQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUUIIAAAQJYQAAABRQggAABAlhAAAAFFCCAAAECWEAAAAUbezC/jdc3+dXcK3VWp+bPeWdroka660M01XzZX56Vr3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zrT988nzk7zDp617lxXXK7mfk7rOV5dpe37a/FRMm8OKFWuu8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2Db94bPe33zz3V6CSXl3jSraTlBx7RXJ+ptWcPF/24b/75Dmcdk5X3BvT7p8u0/4nXHVvTNtj0+aw4qrzU+ElBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIgSQgAAgCghBAAAiBJCAACAKCEEAACIEkIAAIAoIQQAAIi6nV3AT3ls91hfz/0V6yupMq7KPCfbmaar5uQ8J89Ol+TeSK5pxbTz1TWuq94tK56vaftnxb5W/D1N7tXkvZGUXK8V/yN5CQEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACibmcXQL/Hdn/7zXN/xdqp6GqnIjmuiko9Xe1MW/fk2CumzU9F19inSa5FVzufvO7JOZw29mnM4Z+teM9flZcQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIOp2dgH0e+6vt988tvuodrpU6plm2npVdNXTtTem7cOkaXOYrKernRXP4LR1T969K951FdP2z4pnZ8V2PpmXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDqdnYBP+W5v84u4UdUxvXY7i19Vdrpqic5rmRfSV3z3CW5Xl3jmnZ2kn2teJYrkuPqctXfr4oV90aXaX2t+H+jYtq4PpmXEAAAIEoIAQAAooQQAAAgSggBAACihBAAACBKCAEAAKKEEAAAIEoIAQAAooQQAAAgSggBAACihBAAACDqdnYBf+Ox3c8u4TTJsT/319tvptVTMa3mSj1XHTt/1rVeyXVfcY+tuFe77o0V53DafZi8w5NjT46ry7S16KpnxbWo8BICAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARH0dx3F2DQAAwAfxEgIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABECSEAAECUEAIAAEQJIQAAQJQQAgAARAkhAABAlBACAABE/Q/mQUhuSQpkOgAAAABJRU5ErkJggg==
-// Verified: decoding it returns exactly WISH_TEXT above.
-
 // Petals
 (function(){
   var wrap = document.getElementById('petals');
@@ -389,28 +230,30 @@ document.getElementById('payloadText').textContent = WISH_TEXT;
   }
 })();
 
-// Gift
+// Gift -> greeting
 var opened=false;
 function openGift(){
   if(opened) return;
   opened=true;
   var btn=document.getElementById('giftBtn');
-  var msg=document.getElementById('giftMessage');
+  var greeting=document.getElementById('greeting');
   btn.textContent='💐';
   btn.classList.add('opened');
-  msg.classList.add('show');
+  btn.style.animation='pop .5s ease';
+  greeting.classList.add('show');
   document.getElementById('openGiftBtn').textContent='Đã mở quà 💐';
-  showToast('Đã mở quà! Chúc Tường Vân 20/10 rạng rỡ 🌹');
-  // confetti petals burst
-  for(var i=0;i<12;i++){
+  showToast('Đã mở quà! Anh chúc em 20/10 thật rạng rỡ 🌹');
+  greeting.scrollIntoView({behavior:'smooth', block:'center'});
+  // flower burst
+  for(var i=0;i<14;i++){
     var p=document.createElement('div');
-    p.textContent=['🌸','🌹','✨','💐'][i%4];
+    p.textContent=['🌸','🌹','✨','💐','🌷'][i%5];
     p.style.cssText='position:fixed;left:50%;top:55%;font-size:22px;z-index:30;pointer-events:none;transition:all .9s ease-out';
     document.body.appendChild(p);
     (function(el, idx){
       requestAnimationFrame(function(){
-        var ang=(idx/12)*Math.PI*2;
-        el.style.transform='translate('+(Math.cos(ang)*120)+'px,'+(Math.sin(ang)*110 - 40)+'px) scale(1.2)';
+        var ang=(idx/14)*Math.PI*2;
+        el.style.transform='translate('+(Math.cos(ang)*130)+'px,'+(Math.sin(ang)*115 - 40)+'px) scale(1.2)';
         el.style.opacity='0';
       });
       setTimeout(function(){el.remove()},1000);
@@ -428,56 +271,6 @@ function showToast(t){
   clearTimeout(toastTimer);
   toastTimer=setTimeout(function(){el.classList.remove('show')},2600);
 }
-
-// Copy
-document.getElementById('copyBtn').addEventListener('click', function(){
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(WISH_TEXT).then(function(){showToast('Đã sao chép lời chúc trong QR!')}).catch(function(){fallbackCopy()});
-  } else fallbackCopy();
-});
-function fallbackCopy(){
-  var ta=document.createElement('textarea'); ta.value=WISH_TEXT; document.body.appendChild(ta); ta.select();
-  try{document.execCommand('copy'); showToast('Đã sao chép lời chúc!')}catch(e){showToast('Hãy bôi đen lời chúc để sao chép nhé')}
-  ta.remove();
-}
-
-// Download pretty card (composes local QR asset onto a card canvas — same-origin, no network needed)
-document.getElementById('downloadCardBtn').addEventListener('click', function(){
-  var img=document.querySelector('#qrcode img');
-  if(!img){ showToast('Chưa tải được QR, hãy chụp màn hình nhé'); return; }
-  var out=document.createElement('canvas'); out.width=900; out.height=1180;
-  var ctx=out.getContext('2d');
-  ctx.fillStyle='#6D1426'; ctx.fillRect(0,0,900,1180);
-  ctx.fillStyle='#FFFFFF'; ctx.beginPath();
-  if(ctx.roundRect){ ctx.roundRect(36,36,828,1108,28); } else { ctx.rect(36,36,828,1108); }
-  ctx.fill();
-  ctx.fillStyle='#6D1426'; ctx.font='700 28px sans-serif'; ctx.textAlign='center';
-  ctx.fillText('CHÚC MỪNG 20/10',450,110);
-  ctx.fillStyle='#111111'; ctx.font='italic 700 52px serif'; ctx.fillText('Tường Vân',450,168);
-  ctx.fillStyle='#7A5A60'; ctx.font='400 20px sans-serif';
-  ctx.fillText('Quét mã QR bên dưới để nhận lời chúc • Hoa • Quà',450,208);
-  var qrImg=new Image();
-  qrImg.onload=function(){
-    ctx.drawImage(qrImg, 234, 240, 432, 432);
-    ctx.fillStyle='#2B1218'; ctx.font='400 21px sans-serif';
-    var lines=[
-      'Chúc em luôn xinh đẹp rạng ngời như hoa,',
-      'hạnh phúc đong đầy và mọi ước mơ',
-      'đều trở thành hiện thực!'
-    ];
-    lines.forEach(function(l,i){ ctx.fillText(l,450,730+i*30); });
-    ctx.fillStyle='#C5A059'; ctx.font='700 18px sans-serif'; ctx.fillText('— CHÚC MỪNG NGÀY PHỤ NỮ VIỆT NAM 20/10 —',450,860);
-    ctx.fillStyle='#FFF6EE'; ctx.beginPath();
-    if(ctx.roundRect){ ctx.roundRect(120,910,660,150,16); } else { ctx.rect(120,910,660,150); }
-    ctx.fill();
-    ctx.fillStyle='#6D1426'; ctx.font='700 15px sans-serif'; ctx.fillText('CÁCH QUÉT: Mở Camera → Hướng vào mã QR → Chạm “Xem văn bản”',450,970);
-    ctx.fillStyle='#7A5A60'; ctx.font='400 15px sans-serif'; ctx.fillText('Mã QR chứa trực tiếp lời chúc, không cần mở link',450,1002);
-    var a=document.createElement('a'); a.download='Thiep-QR-20-10-Tuong-Van.png'; a.href=out.toDataURL('image/png'); a.click();
-    showToast('Đã tải thiệp QR lộng lẫy!');
-  };
-  qrImg.onerror=function(){ showToast('Chưa tải được thiệp, hãy tải ảnh QR riêng nhé'); };
-  qrImg.src=img.src;
-});
 </script>
 </body>
 </html>
